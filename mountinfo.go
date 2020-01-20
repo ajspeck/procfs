@@ -77,7 +77,7 @@ func parseMountInfoString(mountString string) (*MountInfo, error) {
 
 	mountInfo := strings.Split(mountString, " ")
 	mountInfoLength := len(mountInfo)
-	if mountInfoLength < 11 {
+	if mountInfoLength < 10 {
 		return nil, fmt.Errorf("couldn't find enough fields in mount string: %s", mountString)
 	}
 
@@ -106,7 +106,7 @@ func parseMountInfoString(mountString string) (*MountInfo, error) {
 	}
 	// Has optional fields, which is a space separated list of values.
 	// Example: shared:2 master:7
-	if mountInfo[6] != "" {
+	if (mountInfo[6] != "") && (mountInfo[6] != "-") {
 		mount.OptionalFields, err = mountOptionsParseOptionalFields(mountInfo[6 : mountInfoLength-4])
 		if err != nil {
 			return nil, err
