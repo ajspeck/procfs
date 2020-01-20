@@ -131,6 +131,24 @@ func TestMountInfo(t *testing.T) {
 			},
 			invalid: false,
 		},
+		{
+			name: "Procfs mounted at /proc",
+			s:    "883 882 0:109 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw",
+			mount: &MountInfo{
+				MountId:        883,
+				ParentId:       882,
+				MajorMinorVer:  "0:109",
+				Root:           "/",
+				MountPoint:     "/proc",
+				Options:        map[string]string{"rw": "", "nosuid": "", "nodev": "", "noexec": "", "relatime": ""},
+				OptionalFields: nil,
+				FSType:         "proc",
+				Source:         "proc",
+				SuperOptions:   map[string]string{"rw": ""},
+			},
+			invalid: false,
+		},		
+		
 	}
 
 	for i, test := range tests {
