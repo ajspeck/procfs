@@ -19,7 +19,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/prometheus/procfs/internal/util"
+	"github.com/ajspeck/procfs/internal/util"
 )
 
 // ParseClientRPCStats returns stats read from /proc/net/rpc/nfs
