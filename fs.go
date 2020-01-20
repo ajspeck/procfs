@@ -14,7 +14,7 @@
 package procfs
 
 import (
-	"github.com/prometheus/ajspeck/internal/fs"
+	"github.com/ajspeck/procfs/internal/fs"
 )
 
 // FS represents the pseudo-filesystem sys, which provides an interface to
